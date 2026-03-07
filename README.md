@@ -1,2 +1,12 @@
-# ekf-vehicle-localization
-Vehicle localization project using an Extended Kalman Filter (EKF) with AoA and TDoA measurements. The project analyzes localization performance using AoA-only, TDoA-only, and fused AoA+TDoA methods implemented in MATLAB.
+# Vehicle Localization using Extended Kalman Filter (AoA and TDoA Fusion)
+This project focuses on vehicle localization using sensor measurements and probabilistic filtering techniques. The goal is to estimate the position of a vehicle moving along a racetrack while dealing with noisy and nonlinear measurements. To solve this problem, an Extended Kalman Filter (EKF) is implemented to process Angle of Arrival (AoA) and Time Difference of Arrival (TDoA) measurements and improve localization accuracy. 
+
+The localization system is based on a nearly constant velocity motion model, which predicts the vehicle state over time. Measurements from multiple sensors are incorporated through the EKF update step to correct the predicted position. Because AoA and TDoA measurements are nonlinear functions of the vehicle position, the EKF linearizes the measurement model using the Jacobian matrix at each step of the estimation process. 
+
+Three different localization strategies are analyzed in this project. The first approach uses only AoA measurements to estimate the vehicle trajectory. The second approach relies solely on TDoA measurements. The third approach combines both AoA and TDoA information through sensor fusion within the EKF framework. The objective of this comparison is to evaluate how different measurement types affect localization performance and accuracy. 
+
+Experimental results show that the fusion of AoA and TDoA measurements significantly improves localization performance compared to using either measurement individually. The combined EKF approach achieves the lowest positioning error and provides a more stable trajectory estimate. For example, the fusion method achieves a root mean square error (RMSE) of approximately 0.89 meters, while AoA-only and TDoA-only approaches result in higher localization errors. 
+
+In addition to trajectory estimation, the project includes parameter studies to evaluate the effect of measurement noise and filter tuning parameters on localization performance. Cumulative distribution function (CDF) analysis is also performed to evaluate the distribution of localization errors and assess the robustness of the EKF-based fusion approach. 
+
+Overall, this project demonstrates how probabilistic filtering and sensor fusion techniques can significantly improve vehicle localization accuracy in the presence of noisy measurements. The implementation is developed in MATLAB and provides practical insight into EKF design, sensor fusion, and performance evaluation for localization systems.
